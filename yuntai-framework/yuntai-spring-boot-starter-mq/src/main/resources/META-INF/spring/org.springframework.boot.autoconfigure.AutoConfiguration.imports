@@ -1,0 +1,3 @@
+com.joyintech.yuntai.framework.mq.redis.config.YuntaiRedisMQProducerAutoConfiguration
+com.joyintech.yuntai.framework.mq.redis.config.YuntaiRedisMQConsumerAutoConfiguration
+com.joyintech.yuntai.framework.mq.rabbitmq.config.YuntaiRabbitMQAutoConfiguration

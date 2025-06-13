@@ -1,0 +1,3 @@
+alter TABLE SYS_DICT COMMENT = '字典主表';
+alter TABLE SYS_DICT_ITEM COMMENT = '字典子表';
+alter TABLE COMM_TREE_DATA COMMENT = '字典树子表';

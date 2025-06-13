@@ -1,0 +1,1 @@
+alter table CFG_PAGE_ATTACHMENT_INFO add DIR_TYPE  varchar(32) comment '附件业务类型,资产类型文件:0,产品类型文件:1';

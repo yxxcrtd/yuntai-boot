@@ -1,0 +1,2 @@
+alter table CFG_PAGE_ATTACHMENT_UPLOADFILE add UPLOAD_TEMPLATE_FILE_ID  varchar(128) comment '上传模版文件id';
+alter table CFG_PAGE_ATTACHMENT_UPLOADFILE add UPLOAD_TEMPLATE_FILE_NAME  varchar(512) comment '上传模版文件名称';

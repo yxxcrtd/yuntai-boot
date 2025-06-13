@@ -1,0 +1,1 @@
+alter table CFG_PAGE_ATTACHMENT_INFO add IS_QUERY_BUSINESS_FILE_LIST  int(2) comment '上传模版文件名称';

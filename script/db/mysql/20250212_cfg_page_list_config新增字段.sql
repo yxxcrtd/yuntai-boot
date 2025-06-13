@@ -1,0 +1,1 @@
+alter table cfg_page_list_config add column `column_field_alias` varchar(64) DEFAULT NULL COMMENT '字段别名';

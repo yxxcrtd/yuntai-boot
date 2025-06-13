@@ -1,0 +1,1 @@
+alter table cfg_process_design modify column process_name varchar(2000) COMMENT '流程名称';

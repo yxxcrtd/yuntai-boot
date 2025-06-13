@@ -1,0 +1,2 @@
+com.joyintech.yuntai.framework.redis.config.YuntaiRedisAutoConfiguration
+com.joyintech.yuntai.framework.redis.config.YuntaiCacheAutoConfiguration

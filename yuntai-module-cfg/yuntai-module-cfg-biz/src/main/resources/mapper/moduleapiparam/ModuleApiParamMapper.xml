@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joyintech.yuntai.module.cfg.dal.mysql.moduleapiparam.ModuleApiParamMapper">
+
+    <!--
+        一般情况下，尽可能使用 Mapper 进行 CRUD 增删改查即可。
+        无法满足的场景，例如说多表关联查询，才使用 XML 编写 SQL。
+        代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
+     -->
+
+
+    <select id="selectByApiId" resultType="com.joyintech.yuntai.module.cfg.controller.admin.moduleinfo.vo.ModuleApiParamVO">
+        select
+            a.module_id,
+            p.param_type,
+            p.api_id,
+            p.module_table_id,
+            td.table_name,
+            p.field_id,
+            p.field_name as fieldName,
+            p.field_comment as fieldComment,
+            c.java_type as dataType,
+            c.is_not_null as required,
+            p.default_value,
+            p.valid_rule
+        from cfg_module_api_param p
+         inner join cfg_module_api a on p.api_id = a.id
+         left join cfg_module_table t on a.module_id = t.module_id and p.module_table_id = t.id
+         left join cfg_table_definition td on  td.id = t.table_id
+         left join cfg_column_definition c on  c.id = p.field_id and c.table_id = td.id
+        where p.api_id = #{apiId} order by p.sort,module_table_id,p.field_id
+    </select>
+
+    <select id="selectByModuleId" resultType="com.joyintech.yuntai.module.cfg.dal.dataobject.moduleapiparam.ModuleApiParamDO">
+        select p.*
+        from cfg_module_api_param p
+        inner join cfg_module_api a on p.api_id = a.id
+        where a.module_id = #{moduleId} and a.service_code = #{serviceCode}
+    </select>
+
+    <delete id="deleteByModuleId" >
+        delete from cfg_module_api_param
+        where api_id in (select id from cfg_module_api where module_id = #{moduleId})
+    </delete>
+</mapper>

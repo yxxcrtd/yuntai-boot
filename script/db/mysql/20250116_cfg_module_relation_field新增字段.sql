@@ -1,0 +1,1 @@
+alter table cfg_module_relation_field add column `relation_table_key` varchar(64) DEFAULT NULL COMMENT '关联表tableKey';

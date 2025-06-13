@@ -1,0 +1,1 @@
+alter table cfg_sub_table_setting add column `def_table_field_name` VARCHAR(120) DEFAULT NULL COMMENT '自定义表字段名';

@@ -1,0 +1,1 @@
+alter table CFG_PAGE_ATTACHMENT_INFO add IS_NOT_ALLOW_UPLOAD  int(11) comment '是否禁止上传';

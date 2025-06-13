@@ -1,0 +1,1 @@
+alter table cfg_page_list_config modify column def_value varchar(2000) COMMENT '默认值';

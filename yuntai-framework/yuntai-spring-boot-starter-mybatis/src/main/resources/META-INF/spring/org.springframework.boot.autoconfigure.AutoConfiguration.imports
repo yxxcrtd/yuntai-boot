@@ -1,0 +1,3 @@
+com.joyintech.yuntai.framework.datasource.config.YuntaiDataSourceAutoConfiguration
+com.joyintech.yuntai.framework.mybatis.config.YuntaiMybatisAutoConfiguration
+com.joyintech.yuntai.framework.translate.config.YuntaiTranslateAutoConfiguration

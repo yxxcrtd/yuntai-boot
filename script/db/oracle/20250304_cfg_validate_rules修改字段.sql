@@ -1,0 +1,1 @@
+alter table cfg_validate_rules modify rules_name varchar2(2000);

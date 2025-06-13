@@ -1,0 +1,1 @@
+alter table cfg_page_list_config add column `IS_SHOW_IN_TABLE` int DEFAULT NULL COMMENT '列表内是否展示';

@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.joyintech.yuntai.framework.tenant.core.mq.kafka.TenantKafkaEnvironmentPostProcessor

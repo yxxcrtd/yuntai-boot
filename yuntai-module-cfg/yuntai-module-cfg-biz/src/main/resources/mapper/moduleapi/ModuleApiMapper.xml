@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joyintech.yuntai.module.cfg.dal.mysql.moduleapi.ModuleApiMapper">
+
+    <!--
+        一般情况下，尽可能使用 Mapper 进行 CRUD 增删改查即可。
+        无法满足的场景，例如说多表关联查询，才使用 XML 编写 SQL。
+        代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
+     -->
+    <delete id="deleteByModuleId" >
+        delete from cfg_module_api where module_id = #{moduleId}
+    </delete>
+
+    <select id="selectModuleCache" resultType="com.joyintech.yuntai.module.cfg.controller.admin.lowcodeapi.vo.ModuleCache">
+        select
+            a.module_id as moduleId,
+            a.id as serviceId,
+            a.service_code as serviceCode,
+            td.datasource_id as dataSourceId,
+            s.code as dataSourceCode,
+            b.module_type as moduleType,
+            b.module_bean as moduleBean,
+            b.module_method as moduleMethod,
+            b.api_type as apiType,
+            b.api_url as apiUrl,
+            t.id moduleTableId
+        from cfg_module_api a
+        left join cfg_module_info b on a.module_id = b.id and b.deleted=0
+        left join cfg_table_definition td on b.main_table_id = td.id and td.deleted=0
+        LEFT JOIN cfg_module_table t ON b.id=t.module_id and b.main_table_id = t.table_id AND t.is_main = 1 AND t.deleted = 0
+        left join infra_data_source_config s on td.datasource_id = s.id and t.deleted=0
+        where a.deleted=0
+        <if test="moduleId != null">
+            and a.module_id = #{moduleId}
+        </if>
+    </select>
+
+    <select id="selectMappingModuleCache" resultType="com.joyintech.yuntai.module.cfg.controller.admin.lowcodeapi.vo.ModuleCache">
+        select
+            a.id as serviceId,
+            td.datasource_id as dataSourceId
+        from cfg_module_api a
+        left join cfg_module_info b on a.module_id = b.id and b.deleted=0
+        left join cfg_module_info bb on bb.id = b.mapping_module_id and bb.deleted=0
+        left join cfg_table_definition td on bb.main_table_id = td.id and td.deleted=0
+        where a.deleted=0 and a.service_code = 'MAPPING_GET_BY_ID'
+        <if test="moduleId != null">
+            and a.module_id = #{moduleId}
+        </if>
+    </select>
+
+</mapper>

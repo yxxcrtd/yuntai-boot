@@ -1,0 +1,1 @@
+alter table cfg_sub_table_setting add is_hidden_action varchar(32) comment  '是否隐藏操作列';

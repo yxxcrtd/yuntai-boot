@@ -1,0 +1,1 @@
+alter table cfg_component_attribute add column `sort` int COMMENT '排序';

@@ -1,0 +1,1 @@
+alter table CFG_PAGE_BUTTON add COLUMN_DISPLAY_COMPONENT  varchar(64) comment  '显示组件';

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joyintech.yuntai.module.cfg.dal.mysql.lowcode.LowCodeMapper">
+
+    <select id="getPage"  resultType="java.util.Map">
+        ${sql}
+        <if test="searchParams != null and searchParams.size() > 0">
+            <foreach collection="searchParams" item="item" separator=" and ">
+                <if test="item.queryType != null and item.value == '1'">
+                    ${item.fieldName} = #{item.fieldValue}
+                </if>>
+                <if test="item.queryType != null and item.value == '2'">
+                    <bind name="item_fieldValue" value="'%'+item.fieldValue+'%'"/>
+                    ${item.fieldName} like  #{item_fieldValue}
+                </if>
+                <if test="item.queryType != null and item.value == '3'">
+                    ${item.fieldName} in
+                    <foreach collection="item.inFieldValues" item="value" open="(" separator="," close=")">
+                        #{value}
+                    </foreach>
+                </if>
+                <if test="item.queryType != null and item.value == '4'">
+                    ${item.fieldName} >= #{item.startDate} and ${item.fieldName} &lt;= #{item.endDate}
+                </if>
+            </foreach>
+        </if>
+    </select>
+
+</mapper>

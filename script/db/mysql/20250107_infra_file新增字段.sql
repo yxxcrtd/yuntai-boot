@@ -1,0 +1,1 @@
+alter table infra_file add column `parent_id` bigint DEFAULT NULL COMMENT '主表id';

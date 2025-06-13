@@ -1,0 +1,4 @@
+com.joyintech.yuntai.framework.idempotent.config.YuntaiIdempotentConfiguration
+com.joyintech.yuntai.framework.lock4j.config.YuntaiLock4jConfiguration
+com.joyintech.yuntai.framework.ratelimiter.config.YuntaiRateLimiterConfiguration
+com.joyintech.yuntai.framework.signature.config.YuntaiApiSignatureAutoConfiguration

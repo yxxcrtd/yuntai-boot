@@ -1,0 +1,1 @@
+alter table CFG_PAGE_BUTTON add BTN_POSITION varchar(64) comment  '按钮位置';

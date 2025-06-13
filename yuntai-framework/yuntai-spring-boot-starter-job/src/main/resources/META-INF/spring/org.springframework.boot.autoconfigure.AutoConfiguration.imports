@@ -1,0 +1,2 @@
+com.joyintech.yuntai.framework.quartz.config.YuntaiQuartzAutoConfiguration
+com.joyintech.yuntai.framework.quartz.config.YuntaiAsyncAutoConfiguration

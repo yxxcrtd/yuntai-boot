@@ -1,0 +1,75 @@
+package com.joyintech.yuntai.module.cfg.controller.admin.fileinfo.vo;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import com.alibaba.excel.annotation.*;
+
+@Schema(description = "管理后台 - 上传附件 Response VO")
+@Data
+@ExcelIgnoreUnannotated
+public class FileInfoRespVO {
+
+    @Schema(description = "主键ID", requiredMode = Schema.RequiredMode.REQUIRED, example = "32532")
+    @ExcelProperty("主键ID")
+    private Long id;
+
+    @Schema(description = "列表页ID", requiredMode = Schema.RequiredMode.REQUIRED, example = "27499")
+    @ExcelProperty("列表页ID")
+    private Long pageId;
+
+    @Schema(description = "流程id", example = "29914")
+    @ExcelProperty("流程id")
+    private String flowId;
+
+    @Schema(description = "流程节点id", example = "23358")
+    @ExcelProperty("流程节点id")
+    private String flowNodeId;
+
+    @Schema(description = "附件文件类型", example = "1")
+    @ExcelProperty("附件文件类型")
+    private String fileType;
+
+    @Schema(description = "附件文件名称", example = "王五")
+    @ExcelProperty("附件文件名称")
+    private String fileName;
+
+    @Schema(description = "上传人", example = "25771")
+    @ExcelProperty("上传人")
+    private String uploadUserId;
+
+    @Schema(description = "上传时间")
+    @ExcelProperty("上传时间")
+    private LocalDateTime uploadDate;
+
+    @Schema(description = "是否必传")
+    @ExcelProperty("是否必传")
+    private Long isRequire;
+
+    @Schema(description = "文件上传统一ID", example = "22272")
+    @ExcelProperty("文件上传统一ID")
+    private String fileId;
+
+    @Schema(description = "文件地址", example = "https://www.joyintech.com")
+    @ExcelProperty("文件地址")
+    private String fileUrl;
+
+    @Schema(description = "文件大小")
+    @ExcelProperty("文件大小")
+    private BigDecimal fileSize;
+
+    @Schema(description = "创建时间", requiredMode = Schema.RequiredMode.REQUIRED)
+    @ExcelProperty("创建时间")
+    private LocalDateTime createTime;
+
+    @Schema(description = "附件类型", example = "22272")
+    @ExcelProperty("附件类型")
+    private String attachmentType;
+
+    @Schema(description = "附件文件类型", example = "29914")
+    private String fileTypeText;
+
+    @Schema(description = "附件id", example = "29914")
+    private String oriAttachmentId;
+}

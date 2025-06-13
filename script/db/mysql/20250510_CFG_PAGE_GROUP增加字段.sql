@@ -1,0 +1,1 @@
+alter table CFG_PAGE_GROUP add GROUP_FAIL_SLOT varchar(512) comment  '尾部插槽';

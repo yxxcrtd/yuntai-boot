@@ -1,0 +1,6 @@
+com.joyintech.yuntai.framework.apilog.config.YuntaiApiLogAutoConfiguration
+com.joyintech.yuntai.framework.jackson.config.YuntaiJacksonAutoConfiguration
+com.joyintech.yuntai.framework.swagger.config.YuntaiSwaggerAutoConfiguration
+com.joyintech.yuntai.framework.web.config.YuntaiWebAutoConfiguration
+com.joyintech.yuntai.framework.xss.config.YuntaiXssAutoConfiguration
+com.joyintech.yuntai.framework.banner.config.YuntaiBannerAutoConfiguration

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.joyintech.boot</groupId>
+        <artifactId>yuntai</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>yuntai-module-cfg-api</module>
+        <module>yuntai-module-cfg-biz</module>
+    </modules>
+    <artifactId>yuntai-module-cfg</artifactId>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>
+        cfg 模块下，建立表、索引、模型等和低码配置相关的功能
+    </description>
+
+</project>

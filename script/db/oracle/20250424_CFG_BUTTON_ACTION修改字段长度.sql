@@ -1,0 +1,1 @@
+alter table CFG_BUTTON_ACTION modify DATA_SCRIPT varchar2(4000);

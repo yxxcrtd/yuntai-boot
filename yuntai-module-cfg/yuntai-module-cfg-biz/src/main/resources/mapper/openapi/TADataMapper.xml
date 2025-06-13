@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joyintech.yuntai.module.cfg.dal.mysql.openapi.TADataMapper">
+
+    <select id="getTADataInvProperty"
+            resultType="com.joyintech.yuntai.module.cfg.openapi.dto.TADataInvPropertyResVO">
+        SELECT *
+        FROM V_ZT_INV_PROPERTY
+        WHERE
+            FUND_CODE = #{projCode}
+    </select>
+    <select id="getTADataBeftInfo"
+            resultType="com.joyintech.yuntai.module.cfg.openapi.dto.TADataBeftInfoResVO">
+        SELECT *
+        FROM V_ZT_BEFTINFO
+        WHERE
+            FUND_CODE = #{projCode}
+    </select>
+</mapper>

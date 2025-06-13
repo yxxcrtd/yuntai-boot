@@ -1,0 +1,1 @@
+alter table cfg_process_design modify process_name varchar2(2000);

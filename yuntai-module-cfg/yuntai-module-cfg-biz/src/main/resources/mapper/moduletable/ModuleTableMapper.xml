@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joyintech.yuntai.module.cfg.dal.mysql.moduletable.ModuleTableMapper">
+
+    <!--
+        一般情况下，尽可能使用 Mapper 进行 CRUD 增删改查即可。
+        无法满足的场景，例如说多表关联查询，才使用 XML 编写 SQL。
+        代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
+     -->
+    <select id="selectByModuleId" resultType="com.joyintech.yuntai.module.cfg.controller.admin.moduleinfo.vo.ModuleTableRelation">
+        select
+            t.id as moduleTableId,
+            t.module_id as moduleId,
+            m.module_code as moduleCode,
+            t.table_id as tableId,
+            ti.table_name as tableName,
+            ti.table_type as tableType,
+            ti.table_sql as tableSql,
+            t.table_alias as tableAlias,
+            t.readonly,
+            t.main_table_id as mainTableId,
+            t.is_child as isChild,
+            rf.relation_module_table_id as relationModuleTableTd,
+            t.is_main as isMain,
+            t.relation_type as relationType,
+            t.parameter_name as parameterName,
+            t.parameter_type as parameterType,
+            t.search_sql as searchSql,
+            ti.datasource_id as dataSourceId
+        from cfg_module_table t
+        left join cfg_module_info m on t.module_id = m.id
+        left join cfg_table_definition ti on t.table_id = ti.id
+        left join (select module_table_id,relation_module_table_id from cfg_module_relation_field
+        where module_id = #{moduleId} group by module_table_id,relation_module_table_id) rf on t.id = rf.module_table_id
+        where t.module_id = #{moduleId}
+    </select>
+
+    <select id="selectTable" resultType="com.joyintech.yuntai.module.cfg.controller.admin.moduleinfo.vo.ModuleTableSaveReqVO">
+        select t.*,td.table_name as tableName,td.table_comment as tableComment
+        from cfg_module_table t
+        left join cfg_table_definition td on t.table_id = td.id
+        where t.module_id in <foreach collection="moduleId" item="it" open="(" separator="," close=")">#{it}</foreach>
+    </select>
+
+
+    <delete id="deleteByModuleId" >
+        delete from cfg_module_table where module_id = #{moduleId}
+    </delete>
+
+    <select id="listParameterByModuleId" resultType="java.lang.String">
+        select parameter_name from cfg_module_table where module_id = #{moduleId} and parameter_name is not null
+    </select>
+
+    <select id="findTableByModuleId"
+            resultType="com.joyintech.yuntai.module.cfg.controller.admin.moduleinfo.vo.ModuleTableVO">
+        select
+            a.id,
+            a.table_alias tableAlias,
+            b.table_name tableName
+        from
+            cfg_module_table a,
+            cfg_table_definition b
+        where
+            a.module_id=#{moduleId}
+            and a.table_id = b.id
+            and a.deleted ='0'
+            and b.deleted ='0'
+    </select>
+
+    <select id="findViewAssetMember"
+            resultType="com.joyintech.yuntai.module.cfg.openapi.dto.ViewAssetMemberVO">
+        select dyxtjlgh, dextjlgh from view_asset_member where asset_id = #{ywbm}
+    </select>
+
+</mapper>

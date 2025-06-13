@@ -1,0 +1,1 @@
+alter table cfg_sub_table_setting add column `is_allow_add` VARCHAR(32) DEFAULT NULL COMMENT '是否允许新增';

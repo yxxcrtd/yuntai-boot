@@ -1,0 +1,10 @@
+兆尹云台 http://www.joyintech.com
+Application Version: ${yuntai.info.version}
+Spring Boot Version: ${spring-boot.version}
+
+__     __       _______    _
+\ \   / /      |__   __|  (_)
+ \ \_/ /   _ _ __ | | __ _ _
+  \   / | | | '_ \| |/ _` | |
+   | || |_| | | | | | (_| | |
+   |_| \__,_|_| |_|_|\__,_|_|

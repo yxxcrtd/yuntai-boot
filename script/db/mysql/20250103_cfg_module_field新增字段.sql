@@ -1,0 +1,1 @@
+alter table cfg_module_field add column `compute_sql` varchar(512) DEFAULT NULL COMMENT '计算字段公式';

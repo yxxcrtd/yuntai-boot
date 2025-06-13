@@ -1,0 +1,1 @@
+alter table cfg_validate_rules modify column rules_name varchar(2000) COMMENT '规则定义';

@@ -1,0 +1,1 @@
+alter table cfg_module_table add column `table_alias` varchar(64) DEFAULT NULL COMMENT '表别名';

@@ -1,0 +1,1 @@
+alter table cfg_page_list_config modify def_value varchar2(2000);
